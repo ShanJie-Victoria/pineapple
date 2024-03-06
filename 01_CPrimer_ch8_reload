@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+using namespace std;
+unsigned long left(unsigned long num, unsigned int n);
+string left(string str, int n);
+int main(void)
+{
+	unsigned long num = 123123;
+	unsigned int n = 3;
+	cout << left(num, n) << endl;
+	string ss = "happyhappy";
+	cout << left(ss, n) << endl;
+	return 0;
+}
+unsigned long left(unsigned long num, unsigned int n)
+{
+	int m = 1;
+	unsigned long newnum = num / 10;
+	while (newnum != 0)
+	{
+		m++;
+		newnum = newnum / 10;
+	}
+	return num / (pow(10, (m - n)));
+}
+string left(string str, int n)
+{
+	return str.substr(0, n);
+}
